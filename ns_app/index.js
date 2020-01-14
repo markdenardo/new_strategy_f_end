@@ -1,7 +1,10 @@
 const canvasDiv = document.getElementById('canvas')
 const cardDiv = document.getElementById('card')
+
+let noteId = document.getElementById('noteid')
 let noteDiv = document.getElementById('note')
 let urlDiv = document.getElementById('url')
+
 const noteForm = document.getElementById('note-form')
 let textInput = document.getElementById('text-input')
 let urlInput = document.getElementById('url-input')
@@ -14,12 +17,20 @@ let getRandomInt = (max) => {
 }
 
 canvasDiv.addEventListener("click", (e) => {
+  e.preventDefault();
   console.log(e.target.id)
   if (e.target.id === "random-card-button"){
     cardDiv.innerHTML = "loading card..."
     noteDiv.innerHTML = "loading note..."
     urlDiv.innerHTML = "loading url..."
     getRandomCard()
+  }
+  if (e.target.id === "url"){
+    // console.log(randomCard.attributes.notes[0].url)
+    window.open(randomCard.attributes.notes[0].url);
+  }
+  if (e.target.id === "delete-note-button"){
+    deleteNote()
   }
 })
 
@@ -37,6 +48,7 @@ let getRandomCard =(()=>{
     console.log('randomCardId',randomCardId);
     // debugger
     cardDiv.innerHTML = `${randomCard.attributes.strategy}`
+    noteId.innerHTML = `note_id: ${randomCard.attributes.notes[0].id}`
     noteDiv.innerHTML = `${randomCard.attributes.notes[0].text}</br>`
     urlDiv.innerHTML = `${randomCard.attributes.notes[0].url}</br>`
   })
@@ -82,6 +94,18 @@ let createNote = ((textInput,urlInput)=>{
   })
 })
 
-// end add note + url
+// end post note + url
+
+let deleteNote = (()=>{
+  return fetch(`http://localhost:3000/notes/${note.id}`, {
+        method: "DELETE"
+      }) //End of Fetch
+      .then(data => {
+        noteId.innerHTML = ""
+        noteDiv.innerHTML = ""
+        urlDiv.innerHTML = ""
+      })
+})
+
 
 getRandomCard();
