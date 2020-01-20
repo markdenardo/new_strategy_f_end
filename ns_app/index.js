@@ -2,8 +2,10 @@ const canvasDiv = document.getElementById('canvas')
 const noteForm = document.getElementById('note-form')
 let textInput = document.getElementById('text-input')
 let urlInput = document.getElementById('url-input')
+
 let cardId;
 let noteId;
+
 let ul;
 
 document.addEventListener("DOMContentLoaded", (e) => {
@@ -21,6 +23,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       window.open(e.target.innerHTML);
     }
     if (e.target.className === "delete-note"){
+      // debugger
       deleteNote(noteId);
     }
   })

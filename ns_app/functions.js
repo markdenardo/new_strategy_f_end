@@ -83,7 +83,7 @@ let createNote = ((textInput,urlInput)=>{
   .then(note=>{
     let noteItem = document.createElement("li");
     let urlItem = document.createElement("li");
-    let deleteNote = document.createElement("button");
+    let deleteButton = document.createElement("button");
 
     noteId = `${note.id}`
     cardId = `${note.cardId}`
@@ -96,9 +96,9 @@ let createNote = ((textInput,urlInput)=>{
     urlItem.className = "note-url"
     urlItem.innerHTML =  `${note.url}`
 
-    deleteNote.id = `${note.id}`
-    deleteNote.className = "delete-note"
-    deleteNote.innerHTML = "delete"
+    deleteButton.id = `${note.id}`
+    deleteButton.className = "delete-note"
+    deleteButton.innerHTML = "delete"
 
     ul.appendChild(noteItem)
     ul.appendChild(urlItem)
@@ -108,10 +108,13 @@ let createNote = ((textInput,urlInput)=>{
 })
 
 let deleteNote = (()=>{
-    // debugger
-    return fetch(`http://localhost:3000/notes/${noteId}`,{method: "DELETE"})
-
-            // .then((note)=>{
-              //   if (ul.firstElementChild.id === "noteId"){ul.removeChild(li)}
-              // })
-          })
+  // debugger
+  return fetch(`http://localhost:3000/notes/${noteId}`,{method: "DELETE"})
+    .then(note=>
+    {let noteItem = document.getElementById(noteId)
+    noteItem.remove();
+    let urlItem = document.getElementById(noteId)
+    urlItem.remove();
+    let deleteButton = document.getElementById(noteId)
+    deleteButton.remove();})
+})
