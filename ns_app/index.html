@@ -6,30 +6,22 @@
 </head>
 <body>
 
-    <h2>oblique_playground readme:</h2>
-    <div id="ui-prompt" class='ui'>
-      <h3>read the strategy. leave a note. share your work.
-      </div>
-  <div id="canvas" class='canvas'>
-        <h2><div id='card' class='card'>loading card...</div></h2>
-              <h3><div id='noteid' class='noteid'>loading note_id...</div></h3>
-              <h3><div id='note' class='note'>loading note...</div></h3>
-              <h4><div id='url' class='url'>loading url...</div></h4>
-        <button id='random-card-button' class='randomcard'>Random Card</button>
-        <button id='delete-note-button' class='deletenote'>Delete Note</button>
+  <h2>oblique_playground</h2>
 
-        <br></br>
-  </div>
+  <div id="ui-prompt" class='ui'><h3>read the strategy. click text for a new strategy.</div>
 
-    <form id="note-form" action="">
-      <h2>create a new note</h2>
-      <input type='text' name="text" id="text-input" cols="30" rows="10"placeholder="Your Notes">
-      <br></br>
-      <input type='text' name="url" id="url-input" cols="30" rows="10"placeholder="Your URL">
-      <button id='submit'>submit</button>
-    </form>
+  <div id="canvas" class='canvas'></div>
 
+  <form id="note-form" action="">
+    <h3>leave a note.</h3>
+    <input type='text' name="text" id="text-input" cols="30" rows="10"placeholder="Notes">
+    <input type='url' name="url" id="url-input" cols="30" rows="10"placeholder="URL">
+    <button id='submit'>submit</button>
+  </form>
+
+  <script defer src="card.js"></script>
+  <script defer src="note.js"></script>
+  <script defer src="functions.js"></script>
   <script defer src="index.js"></script>
-
 </body>
 </html>
