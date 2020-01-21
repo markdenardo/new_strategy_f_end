@@ -40,11 +40,11 @@ let getRandomCard = ((textInput,urlInput)=>{
       let deleteNote = document.createElement("button");
 
       noteId = `${note.id}`
-      cardId = `${note.cardId}`
+      cardId = `${note.card_id}`
 
-      noteItem.id = `${note.id}`
+      noteItem.id = `${noteId}`
       noteItem.className = "note-text"
-      noteItem.innerHTML = `#${note.id} ${note.text}`
+      noteItem.innerHTML = `#${noteId} ${note.text}`
 
       urlItem.id = `${note.id}`
       urlItem.className = "note-url"
@@ -83,22 +83,22 @@ let createNote = ((textInput,urlInput)=>{
   .then(note=>{
     let noteItem = document.createElement("li");
     let urlItem = document.createElement("li");
-    let deleteButton = document.createElement("button");
+    let deleteNote = document.createElement("button");
 
     noteId = `${note.id}`
-    cardId = `${note.cardId}`
+    cardId = `${note.card_id}`
 
-    noteItem.id = `${note.id}`
+    noteItem.id = `${noteId}`
     noteItem.className = "note-text"
-    noteItem.innerHTML = `#${note.id} ${note.text}`
+    noteItem.innerHTML = `#${noteId} ${note.text}`
 
     urlItem.id = `${note.id}`
     urlItem.className = "note-url"
     urlItem.innerHTML =  `${note.url}`
 
-    deleteButton.id = `${note.id}`
-    deleteButton.className = "delete-note"
-    deleteButton.innerHTML = "delete"
+    deleteNote.id = `${note.id}`
+    deleteNote.className = "delete-note"
+    deleteNote.innerHTML = "delete"
 
     ul.appendChild(noteItem)
     ul.appendChild(urlItem)

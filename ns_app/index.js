@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       window.open(e.target.innerHTML);
     }
     if (e.target.className === "delete-note"){
-      // debugger
+  
       deleteNote(noteId);
     }
   })

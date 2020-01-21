@@ -7,7 +7,7 @@ class Card {
 
   buildNotes(notes) {
     return notes.map(note => {
-      return new Note(note.card_id, note.id, note.text, note.url);
+      return new Note(note.id, note.card_id, note.text, note.url,);
     });
   }
 }
