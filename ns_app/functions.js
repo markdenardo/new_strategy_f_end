@@ -118,3 +118,21 @@ let deleteNote = (()=>{
     let deleteButton = document.getElementById(noteId)
     deleteButton.remove();})
 })
+
+let editCard = ((strategyInput)=>{
+  fetch(`http://localhost:3000/cards/${cardId}`,{
+    method: "PATCH",
+    body: JSON.stringify({
+      strategy: `${strategyInput}`
+    }),
+    headers:{
+      "Content-type": "application/json",
+      "Accept": "application/json"
+    }
+  }).then(card => {
+    let header = document.getElementById('strategy');
+    header.innerHTML = `#${cardId} ${strategyInput}`
+    n=0;
+  })
+
+})
