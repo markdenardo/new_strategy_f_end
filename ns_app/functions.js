@@ -58,7 +58,7 @@ let getRandomCard = ((textInput,urlInput)=>{
       unorderedList.appendChild(urlItem)
       unorderedList.appendChild(deleteNote)
 
-      ul = unorderedList;
+      // ul = unorderedList;
     });
 
   })
@@ -110,13 +110,7 @@ let createNote = ((textInput,urlInput)=>{
 let deleteNote = (()=>{
   // debugger
   return fetch(`http://localhost:3000/notes/${noteId}`,{method: "DELETE"})
-    .then(note=>
-    {let noteItem = document.getElementById(noteId)
-    noteItem.remove();
-    let urlItem = document.getElementById(noteId)
-    urlItem.remove();
-    let deleteButton = document.getElementById(noteId)
-    deleteButton.remove();})
+
 })
 
 let editCard = ((strategyInput)=>{
@@ -130,8 +124,15 @@ let editCard = ((strategyInput)=>{
       "Accept": "application/json"
     }
   }).then(card => {
+    console.log(card)
+    debugger
     let header = document.getElementById('strategy');
+
     header.innerHTML = `#${cardId} ${strategyInput}`
+    //
+    // noteId = `${noteId}`
+    // cardId = `${cardId}`
+
     n=0;
   })
 

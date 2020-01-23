@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   getRandomCard();
 
   uiDiv.addEventListener("click",(e) => {
+    n = 1
   console.log("clicked")
   if (e.target.id === "newcard"){
       canvasDiv.innerHTML = ""
@@ -42,7 +43,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
       strategyInput = input.value
       console.log(strategyInput)
       if (strategyInput !== ""){
-
         editCard(strategyInput);
       }
     }
@@ -52,7 +52,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
 
     if (e.target.className === "delete-note"){
+      console.log(e.target.id)
 
+      let deleteButton = document.getElementById(e.target.id)
+      deleteButton.remove();
+      let urlItem = document.getElementById(e.target.id)
+      urlItem.remove();
+      let noteItem = document.getElementById(e.target.id)
+      noteItem.remove();
+      noteId = e.target.id
+
+      console.log(noteId)
       deleteNote(noteId);
     }
 
