@@ -3,15 +3,15 @@ let getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-let getRandomCard = ((textInput,urlInput)=>{
+let getRandomCard = (()=>{
   fetch('http://localhost:3000/cards')
   .then(r => r.json())
   .then(cards => {
 
     let allCards = cards.data.map(card => {
-      return new Card(card.attributes.notes,
-                      card.id,
-                      card.attributes.strategy);
+      return new Card(card.id,
+                      card.attributes.strategy,
+                      card.attributes.notes);
     });
 
     let singleCardInstance = allCards[getRandomInt(allCards.length)];
@@ -58,12 +58,38 @@ let getRandomCard = ((textInput,urlInput)=>{
       unorderedList.appendChild(urlItem)
       unorderedList.appendChild(deleteNote)
 
-      // ul = unorderedList;
+      ul = unorderedList;
     });
 
   })
 
 })
+
+let editCard = ((strategyInput)=>{
+  fetch(`http://localhost:3000/cards/${cardId}`,{
+    method: "PATCH",
+    body: JSON.stringify({
+      strategy: `${strategyInput}`
+    }),
+    headers:{
+      "Content-type": "application/json",
+      "Accept": "application/json"
+    }
+  }).then(card => {
+    console.log(card)
+    // debugger
+    let header = document.getElementById('strategy');
+    header.innerHTML = `#${cardId} ${strategyInput}`
+    n=0;
+  })
+
+})
+
+let deleteNote = (()=>{
+
+  return fetch(`http://localhost:3000/notes/${noteId}`,{method: "DELETE"})
+
+  })
 
 let createNote = ((textInput,urlInput)=>{
 
@@ -105,35 +131,4 @@ let createNote = ((textInput,urlInput)=>{
     ul.appendChild(deleteNote)
 
   })
-})
-
-let deleteNote = (()=>{
-  // debugger
-  return fetch(`http://localhost:3000/notes/${noteId}`,{method: "DELETE"})
-
-})
-
-let editCard = ((strategyInput)=>{
-  fetch(`http://localhost:3000/cards/${cardId}`,{
-    method: "PATCH",
-    body: JSON.stringify({
-      strategy: `${strategyInput}`
-    }),
-    headers:{
-      "Content-type": "application/json",
-      "Accept": "application/json"
-    }
-  }).then(card => {
-    console.log(card)
-    debugger
-    let header = document.getElementById('strategy');
-
-    header.innerHTML = `#${cardId} ${strategyInput}`
-    //
-    // noteId = `${noteId}`
-    // cardId = `${cardId}`
-
-    n=0;
-  })
-
 })

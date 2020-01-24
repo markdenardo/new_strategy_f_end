@@ -1,8 +1,8 @@
 class Card {
-  constructor(notes, id, strategy) {
-    this.notes = this.buildNotes(notes);
+  constructor(id, strategy, notes) {
     this.id = id;
     this.strategy = strategy;
+    this.notes = this.buildNotes(notes);
   }
 
   buildNotes(notes) {
