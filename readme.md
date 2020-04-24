@@ -4,7 +4,7 @@ Welcome to new_strategy, an oblique strategies project by MDN 2020 (ruby on rail
 PLEASE CLICK ON THE FOLLOWING LINKS TO VIEW THE FRONT END AND BACK END OF THIS PROJECT:
 
 https://github.com/markdenardo/new_strategy_b_end <br>
-https://github.com/markdenardo/new_strategy_f_end/tree/refactor_2
+https://github.com/markdenardo/new_strategy_f_end
 
 BACKGROUND
 Oblique Strategies was made in the 70s by Brian Eno and Peter Schmidt, to aide them in the processing of music, ideation, and decision making. A sort of random number generator, the parallel to divination systems like the Tarot or the I-Ching are evident.
