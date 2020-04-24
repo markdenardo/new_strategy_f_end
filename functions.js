@@ -4,7 +4,7 @@ let getRandomInt = (max) => {
 }
 
 let getRandomCard = (()=>{
-  fetch('http://localhost:3000/cards')
+  fetch('https://new-strategy.herokuapp.com/cards')
   .then(r => r.json())
   .then(cards => {
 
@@ -66,7 +66,7 @@ let getRandomCard = (()=>{
 })
 
 let editCard = ((strategyInput)=>{
-  fetch(`http://localhost:3000/cards/${cardId}`,{
+  fetch(`https://new-strategy.herokuapp.com/cards/${cardId}`,{
     method: "PATCH",
     body: JSON.stringify({
       strategy: `${strategyInput}`
@@ -87,13 +87,13 @@ let editCard = ((strategyInput)=>{
 
 let deleteNote = (()=>{
 
-  return fetch(`http://localhost:3000/notes/${noteId}`,{method: "DELETE"})
+  return fetch(`https://new-strategy.herokuapp.com/notes/${noteId}`,{method: "DELETE"})
 
   })
 
 let createNote = ((textInput,urlInput)=>{
 
-  fetch(`http://localhost:3000/notes`,{
+  fetch(`https://new-strategy.herokuapp.com/notes`,{
     method: "POST",
     headers: {
       "Content-Type": "application/json",
