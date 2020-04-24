@@ -3,7 +3,7 @@ Welcome to new_strategy, an oblique strategies project by MDN 2020 (ruby on rail
 
 PLEASE CLICK ON THE FOLLOWING LINKS TO VIEW THE FRONT END AND BACK END OF THIS PROJECT:
 
-https://github.com/markdenardo/new_strategy_b_end
+https://github.com/markdenardo/new_strategy_b_end <br>
 https://github.com/markdenardo/new_strategy_f_end/tree/refactor_2
 
 BACKGROUND
