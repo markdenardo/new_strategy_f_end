@@ -1,5 +1,4 @@
-new_strategy
-Welcome to new_strategy, an oblique strategies project by MDN 2020 (ruby on rails / api vanilla js app)
+Welcome to oblique strategies playground, an oblique strategies project by MDN 2020 (ruby on rails / api vanilla js app)
 
 PLEASE CLICK ON THE FOLLOWING LINKS TO VIEW THE FRONT END AND BACK END OF THIS PROJECT:
 
