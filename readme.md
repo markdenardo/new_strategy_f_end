@@ -3,6 +3,7 @@ Welcome to oblique strategies playground, an oblique strategies project by MDN 2
 PLEASE CLICK ON THE FOLLOWING LINKS TO VIEW THE FRONT END AND BACK END OF THIS PROJECT:
 
 https://github.com/markdenardo/new_strategy_b_end
+
 https://github.com/markdenardo/new_strategy_f_end
 
 DEMO: https://markdenardo.github.io/oblique_strategies_playground/
