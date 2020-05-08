@@ -14,6 +14,8 @@ let getRandomCard = (()=>{
                       card.attributes.notes);
     });
 
+    canvasDiv.innerHTML = ""
+
     let singleCardInstance = allCards[getRandomInt(allCards.length)];
 
     let newSection = document.createElement('section');
@@ -27,40 +29,44 @@ let getRandomCard = (()=>{
     newSection.appendChild(header);
     document.querySelector("#canvas").appendChild(newSection);
 
-    // Create unorderedList for notes
-    let unorderedList = document.createElement("ul");
-    document.querySelector(`.section-${singleCardInstance.id}`).appendChild(unorderedList);
 
-    // For all notes in a card, create a list item and add it to the
-    // unorderedList
-    singleCardInstance.notes.forEach((note) => {
-      // Add every note for each card
+      let unorderedList = document.createElement("ul");
+      unorderedList.innerHTML = `<b>NOTES AND LINKS</b>`
+      document.querySelector(`.section-${singleCardInstance.id}`).appendChild(unorderedList);
 
-      let noteItem = document.createElement("li");
-      let urlItem = document.createElement("li");
-      let deleteNote = document.createElement("button");
+      // For all notes in a card, create a list item and add it to the
+      // unorderedList
+      singleCardInstance.notes.forEach((note) => {
+        // Add every note for each card
 
-      noteId = `${note.id}`
-      cardId = `${note.card_id}`
+        let noteItem = document.createElement("li");
+        let urlItem = document.createElement("ul");
+        let deleteNote = document.createElement("button");
 
-      noteItem.id = `${noteId}`
-      noteItem.className = "note-text"
-      noteItem.innerHTML = `#${noteId} ${note.text}`
+        noteId = `${note.id}`
+        cardId = `${note.card_id}`
 
-      urlItem.id = `${note.id}`
-      urlItem.style="cursor: pointer;"
-      urlItem.className = "note-url"
-      urlItem.innerHTML =  `${note.url}`
+        noteItem.id = `${noteId}`
+        noteItem.className = "note-text"
+        noteItem.innerHTML = `#${noteId} ${note.text}`
 
-      deleteNote.id = `${note.id}`
-      deleteNote.className = "delete-note"
-      deleteNote.innerHTML = "delete"
+        urlItem.id = `${note.id}`
+        urlItem.style="cursor: pointer;"
+        urlItem.className = "note-url"
+        urlItem.innerHTML =  `${note.url}`
 
-      unorderedList.appendChild(noteItem)
-      unorderedList.appendChild(urlItem)
-      unorderedList.appendChild(deleteNote)
+        deleteNote.id = `${note.id}`
+        deleteNote.style="cursor: crosshair;"
+        deleteNote.className = "delete-note"
+        deleteNote.innerHTML = `delete note #${noteId}`
 
-      ul = unorderedList;
+
+        unorderedList.appendChild(noteItem)
+        unorderedList.appendChild(urlItem)
+        unorderedList.appendChild(deleteNote)
+
+        ul = unorderedList;
+
     });
 
   })
@@ -110,7 +116,7 @@ let createNote = ((textInput,urlInput)=>{
   .then(r=>r.json())
   .then(note=>{
     let noteItem = document.createElement("li");
-    let urlItem = document.createElement("li");
+    let urlItem = document.createElement("ul");
     let deleteNote = document.createElement("button");
 
     noteId = `${note.id}`
@@ -121,12 +127,15 @@ let createNote = ((textInput,urlInput)=>{
     noteItem.innerHTML = `#${noteId} ${note.text}`
 
     urlItem.id = `${note.id}`
+    urlItem.style="cursor: pointer;"
     urlItem.className = "note-url"
     urlItem.innerHTML =  `${note.url}`
 
     deleteNote.id = `${note.id}`
+    deleteNote.style="cursor: crosshair;"
     deleteNote.className = "delete-note"
-    deleteNote.innerHTML = "delete"
+    deleteNote.innerHTML = `delete note #${noteId}`
+
 
     ul.appendChild(noteItem)
     ul.appendChild(urlItem)

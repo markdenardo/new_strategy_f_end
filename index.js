@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   uiDiv.addEventListener("click",(e) => {
 
   if (e.target.id === "newcard"){
-      canvasDiv.innerHTML = ""
+      canvasDiv.innerHTML = "loading strategy..."
       getRandomCard()
     }
 
