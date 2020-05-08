@@ -22,6 +22,7 @@ let getRandomCard = (()=>{
     // Create header for section
     let header = document.createElement('h1');
     header.id = "strategy"
+    header.style="cursor: pointer;"
     header.innerHTML = `#${singleCardInstance.id} ${singleCardInstance.strategy}`;
     newSection.appendChild(header);
     document.querySelector("#canvas").appendChild(newSection);
@@ -47,6 +48,7 @@ let getRandomCard = (()=>{
       noteItem.innerHTML = `#${noteId} ${note.text}`
 
       urlItem.id = `${note.id}`
+      urlItem.style="cursor: pointer;"
       urlItem.className = "note-url"
       urlItem.innerHTML =  `${note.url}`
 
